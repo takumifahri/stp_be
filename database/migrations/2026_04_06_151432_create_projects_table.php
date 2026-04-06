@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('project_type')->nullable();
+            $table->date('date_started')->nullable();
+            $table->date('date_ended')->nullable();
+            
+            // Relations ke projects galery
+            
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
